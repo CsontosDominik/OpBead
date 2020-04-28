@@ -13,14 +13,14 @@ echo""
 
 cal -A 1
 
-while [ true ]
+echo "Írj 1 est a legközelebbi esemény megjelítéséhez"
+echo "Írj 2 est az összes esemény megjelenítéséhez"
+echo "Írj 3 ast új esemény hozzáadásához"
+echo "Nyomj ENTER-t a kilépéshez"
+
+while getopts "1:2:3" opt;
 do
-        echo "Írj 1 est a legközelebbi esemény megjelítéséhez"
-        echo "Írj 2 est az összes esemény megjelenítéséhez"
-        echo "Írj 3 ast új esemény hozzáadásához"
-        echo "Nyomj ENTER-t a kilépéshez"
-        read
-        case "$REPLY" in
+        case $opt in
                 1)
                 echo "A legkozelebbi esemény:"
                 echo ${OsszesEsemeny[0]}
